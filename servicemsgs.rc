@@ -1,0 +1,11 @@
+#define RS_ENTER_RUNNING_STATE  1
+#define RS_LEAVE_RUNNING_STATE  2
+#define RS_EXCEPTION_THROWN     3
+
+STRINGTABLE
+{
+  RS_ENTER_RUNNING_STATE  L"Service entering the running state"
+  RS_LEAVE_RUNNING_STATE  L"Service leaving the running state"
+  RS_EXCEPTION_THROWN     L"Service exception thrown:"
+}
+

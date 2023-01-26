@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{EE951F4B-866D-40AD-ABD4-522D219EE873}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="testapp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="serviceapp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="serviceres.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="testapp">
+        <MSBuild Projects="testapp.dproj"/>
+    </Target>
+    <Target Name="testapp:Clean">
+        <MSBuild Projects="testapp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="testapp:Make">
+        <MSBuild Projects="testapp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="serviceapp">
+        <MSBuild Projects="serviceapp.dproj"/>
+    </Target>
+    <Target Name="serviceapp:Clean">
+        <MSBuild Projects="serviceapp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="serviceapp:Make">
+        <MSBuild Projects="serviceapp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="serviceres">
+        <MSBuild Projects="serviceres.dproj"/>
+    </Target>
+    <Target Name="serviceres:Clean">
+        <MSBuild Projects="serviceres.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="serviceres:Make">
+        <MSBuild Projects="serviceres.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="testapp;serviceapp;serviceres"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="testapp:Clean;serviceapp:Clean;serviceres:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="testapp:Make;serviceapp:Make;serviceres:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
