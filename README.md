@@ -10,7 +10,7 @@ use of the exact same code in a real service.
 
 # how to
 
-Implement the specific service function in the app.pas example file.  Then compile the testapp.dpr project and do your debugging there.
+Implement the specific service function in the `app.pas` example file.  Then compile the `testapp.dpr` project and do your debugging there.
 
 Once you've eradicated all your bugs, compile the `serviceapp.dpr` project instead.  Then install using the normal `serviceapp /install` method and
 enjoy the fruits of your labour.
@@ -22,3 +22,5 @@ There's a Delphi project group included in the repo to make it easy to open all 
 # customization
 
 At the top of service.pas are a set of constant strings that are used to describe the service in the service manager.  Tailor them for your service, for that professional look and feel.
+
+This example uses a console app for the debug.  Of course, you can use a VCL app instead if you wish, just remember that Windows services do not have access to the desktop so no VCL windows can be shown in the final service app.
